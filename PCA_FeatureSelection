@@ -1,0 +1,14 @@
+
+import pandas as pd
+bank=pd.read_csv("D:\\Downloads\\UniversalBank.csv")
+
+X=bank.iloc[:,1:12]
+y=bank["Personal Loan"]
+
+from sklearn.decomposition import PCA
+pca=PCA(n_components=10)
+pca.fit(X)
+
+pca.explained_variance_ratio_
+
+pd.DataFrame(list(zip(X.columns,pca.explained_variance_ratio_)),columns=["predictor","importance"])
