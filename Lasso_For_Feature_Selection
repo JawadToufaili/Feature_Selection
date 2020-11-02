@@ -1,0 +1,17 @@
+import pandas as pd
+bank=pd.read_csv("D:\\Downloads\\UniversalBank.csv")
+
+X=bank.iloc[:,1:12]
+y=bank["Personal Loan"]
+
+from sklearn.preprocessing import StandardScaler
+scaler=StandardScaler()
+X_std=scaler.fit_transform(X)
+
+from sklearn.linear_model import Lasso
+
+model=Lasso(alpha=0.1)
+model.fit(X_std,y)
+model.coef_
+
+#This will eventually give us the significance of the predictors where we can feature select
