@@ -14,4 +14,6 @@ model=Lasso(alpha=0.1)
 model.fit(X_std,y)
 model.coef_
 
+pd.DataFrame(list(zip(X.columns,model.coef_)),columns=["predictor","importance"])
+
 #This will eventually give us the significance of the predictors where we can feature select
