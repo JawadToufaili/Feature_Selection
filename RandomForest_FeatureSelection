@@ -1,0 +1,13 @@
+import pandas as pd
+bank=pd.read_csv("D:\\Downloads\\UniversalBank.csv")
+
+X=bank.iloc[:,1:12]
+y=bank["Personal Loan"]
+
+from sklearn.ensemble import RandomForestClassifier
+randomforest=RandomForestClassifier(random_state=0)
+model=randomforest.fit(X,y)
+model.feature_importances_
+
+pd.DataFrame(list(zip(X.columns,model.feature_importances_)),columns=["predictor","importance"])
+
