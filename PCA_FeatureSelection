@@ -12,3 +12,6 @@ pca.fit(X)
 pca.explained_variance_ratio_
 
 pd.DataFrame(list(zip(X.columns,pca.explained_variance_ratio_)),columns=["predictor","importance"])
+
+#For dimension reduction:
+X_new=pca.transform(X)
