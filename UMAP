@@ -1,0 +1,7 @@
+####normalize data before####
+import umap
+u = umap.UMAP(random_state=42)
+X_umap = u.fit_transform(
+StandardScaler().fit_transform(X)
+)
+X_umap.shape
