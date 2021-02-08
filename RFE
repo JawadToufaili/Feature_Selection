@@ -1,0 +1,7 @@
+from sklearn.feature_selection import RFE
+model = ensemble.RandomForestClassifier(
+n_estimators=100
+)
+rfe = RFE(model, 4)
+rfe.fit(X, y)
+X.columns[rfe.support_]
