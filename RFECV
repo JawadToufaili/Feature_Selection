@@ -1,0 +1,14 @@
+from sklearn import ensemble
+from yellowbrick.features import RFECV
+
+rfe = RFECV(
+ensemble.RandomForestClassifier(
+n_estimators=100
+),
+cv=5,
+)
+rfe.fit(X, y)
+rfe.rfe_estimator_.ranking_
+rfe.rfe_estimator_.n_features_
+rfe.rfe_estimator_.support_
+rfe.poof()
